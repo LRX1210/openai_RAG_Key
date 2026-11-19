@@ -3,16 +3,16 @@ import os
 
 client = OpenAI(
     # 如果没有配置环境变量，请用阿里云百炼API Key替换：api_key="sk-xxx"
-    api_key="sk-456d2be8587c41a9b1abb76dcf97de91",
+    api_key="{密钥}",
     #！！！保护安全，在环境变量设置后，api_key可有可无。
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    base_url="{ai接口的地址}"
     #平台地址
 )
 
 messages = [{"role": "user", "content": "你是谁"}]
               #给定角色               #内容
-completion = client.chat.completions.create(
-    model = "qwen3.8-max",  # 您可以按需更换为其它深度思考模型
+completion = client.chat.completions.create(     #模型加载和调试
+    model = "{模型}",  # 您可以按需更换为其它深度思考模型
     messages = messages,
     extra_body = {"enable_thinking": True},
     stream = True
